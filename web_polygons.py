@@ -65,13 +65,15 @@ for p in range(num_pieces):
 d = st.slider('Shift parameter, d', min_value=-10, max_value=10, value=0)
 xi_list = np.arange(len(k_list)-1)
 
+st.subheader('Mapping phase portrait')
+
 fig_map, ax_map = plt.subplots()
 ax_map.set_xlabel('q')
 ax_map.set_ylabel('p')
 ax_map = plot_orbits(ax_map, k_list, xi_list, d=d, Tmax=1000)
 st.pyplot(fig_map)
 
-st.write('Force function')
+st.subheader('Force function')
 # plot force function
 fig_f, ax_f = plt.subplots()
 x = np.linspace(min(xi_list)-2, max(xi_list)+2, 1000)
