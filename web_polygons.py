@@ -54,7 +54,7 @@ def plot_orbits(ax, k_list, xi_list, d, Tmax=1000):
 
 st.title('Integrable symplectic mappings of the plane')
 
-st.write("""McMillan-Turaev canonical form of symplectic maps:"""")
+st.write("""McMillan-Turaev canonical form of symplectic maps:""")
 st.latex(r"""
 $$
 q' = p
@@ -97,6 +97,6 @@ ax_f.plot(x, f)
 
 st.pyplot(fig_f)
 st.write("""Contributors:
-        Yaroslav Kharkov
+        Yaroslav Kharkov,
         Timothy Zolkin
         """)
