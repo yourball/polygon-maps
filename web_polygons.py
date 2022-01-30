@@ -52,7 +52,18 @@ def plot_orbits(ax, k_list, xi_list, d, Tmax=1000):
                    color=[abs(x0)/max_x0, .1*abs(x0)/max_x0, 1-abs(x0)/max_x0])
     return ax
 
-st.title('Integrable polygonal mappings of the plane')
+st.title('Integrable symplectic mappings of the plane')
+
+st.write("""McMillan-Turaev canonical form of symplectic maps:"""")
+st.latex(r"""
+$$
+q' = p
+$$
+
+$$
+p' = -q + f(p)
+$$""")
+
 
 k_list = []
 
@@ -85,3 +96,7 @@ for xi in x:
 ax_f.plot(x, f)
 
 st.pyplot(fig_f)
+st.write("""Contributors:
+        Yaroslav Kharkov
+        Timothy Zolkin
+        """)
