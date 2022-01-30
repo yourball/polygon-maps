@@ -59,7 +59,7 @@ k_list = []
 num_pieces = st.number_input('Enter a number of piecewise regions',
                              min_value=2, max_value=10, value=3, step=1)
 st.text(r'Slopes of the piesewise function')
-for p in range(num_pieces):
+for p in range(int(num_pieces)):
     k_list.append(st.slider(f'k{p}', min_value=-3, max_value=3, value=0))
 
 d = st.slider('Shift parameter, d', min_value=-10, max_value=10, value=0)
