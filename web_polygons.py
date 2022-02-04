@@ -56,9 +56,7 @@ def plot_orbits(ax, k_list, xi_list, d, Tmax=1000):
                    )
     return ax
 
-st.title('Integrable symplectic mappings of the plane')
-
-st.write("""McMillan-Turaev canonical form of symplectic maps:""")
+st.subheader("""McMillan-Turaev canonical form of symplectic maps:""")
 st.latex(r"""
 $$
 q' = p
@@ -99,7 +97,7 @@ ax_map = plot_orbits(ax_map, k_list, xi_list, d=d, Tmax=int(Tmax))
 ax_map.set_aspect('equal')
 st.pyplot(fig_map)
 
-st.subheader('Force function')
+st.sidebar.subheader('Force function')
 # plot force function
 fig_f, ax_f = plt.subplots()
 x = np.linspace(min(xi_list)-2, max(xi_list)+2, 1000)
@@ -111,7 +109,7 @@ for xi in x:
 
 ax_f.plot(x, f, color='k')
 
-st.pyplot(fig_f)
+st.sidebar.pyplot(fig_f)
 st.write("""Contributors:
         Yaroslav Kharkov (Univeristy of Maryland),
         Timothy Zolkin (Fermilab)
