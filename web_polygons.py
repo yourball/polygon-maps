@@ -56,16 +56,25 @@ def plot_orbits(ax, k_list, xi_list, d, Tmax=1000):
                    )
     return ax
 
-st.subheader("""McMillan-Turaev canonical form of symplectic maps:""")
+st.header("""Canonical form of symplectic maps""")
+
+st.write("""Arbitrary area-preserving (symplectic) mapping of the plane
+can be represented in the McMillan-Turaev canonical form:""")
 st.latex(r"""
-$$
-q' = p
-$$
-
-$$
-p' = -q + f(p)
-$$""")
-
+\begin{cases}
+q_{n+1} = F(q_n ,p_n)\\
+p_{n+1} = G(q_n ,p_n)
+\end{cases}
+\quad
+\Rightarrow
+\quad
+\begin{cases}
+q_{n+1} = p_n\\
+p_{n+1} = -q_n + f(p_n),
+\end{cases}
+""")
+st.write("""where f is a force function.
+Below we will consider piecewise linear force function with integer slope coefficients.""")
 
 k_list = []
 
