@@ -73,8 +73,7 @@ q_{n+1} = p_n\\
 p_{n+1} = -q_n + f(p_n),
 \end{cases}
 """)
-st.write("""where f is a force function.
-Below we will consider piecewise linear force function with integer slope coefficients.""")
+st.write("""where f is a force function.""")
 
 k_list = []
 
