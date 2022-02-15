@@ -56,7 +56,7 @@ def plot_orbits(ax, k_list, xi_list, d, Tmax=1000):
                    )
     return ax
 
-st.header("""Canonical form of symplectic maps""")
+st.markdown("""## Canonical form of symplectic maps""")
 
 st.write("""Arbitrary area-preserving (symplectic) mapping of the plane
 can be represented in the McMillan-Turaev canonical form:""")
@@ -79,8 +79,6 @@ Below we will consider piecewise linear force function with integer slope coeffi
 k_list = []
 
 st.write("""
-
-
         """)
 
 # col1, col2 = st.columns(2)
