@@ -101,7 +101,7 @@ xi_list = np.arange(len(k_list)-1)
 
 st.subheader('Phase portrait of the map')
 
-fig_map, ax_map = plt.subplots()
+fig_map, ax_map = plt.subplots(figsize=(5, 5))
 ax_map.set_xlabel(r'$q$')
 ax_map.set_ylabel(r'$p$')
 ax_map = plot_orbits(ax_map, k_list, xi_list, d=d, Tmax=int(Tmax))
