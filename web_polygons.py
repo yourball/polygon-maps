@@ -90,8 +90,10 @@ num_pieces = st.sidebar.number_input('Number of piecewise regions for the force 
 Tmax = st.sidebar.number_input("Number of map iterations", min_value=1, value=2000, step=1000)
 
 st.sidebar.write(r'Slopes of the piesewise function $k_i$:')
+
+k_init = (1 + np.arange(num_pieces)) % 2
 for p in range(int(num_pieces)):
-    k_list.append(st.sidebar.slider(f'k{p}', min_value=-3, max_value=3, value=0))
+    k_list.append(st.sidebar.slider(f'k{p}', min_value=-3, max_value=3, value=int(k_init[p])))
 
 d = st.sidebar.slider('Shift parameter, d', min_value=-10, max_value=10, value=0)
 xi_list = np.arange(len(k_list)-1)
@@ -119,7 +121,9 @@ for xi in x:
 ax_f.plot(x, f, color='k')
 
 st.sidebar.pyplot(fig_f)
-st.write("""Contributors:
-        Yaroslav Kharkov (Univeristy of Maryland),
-        Timothy Zolkin (Fermilab)
-        """)
+st.markdown("### Preprint: [arXiv: 2201.13133](https://arxiv.org/abs/2201.13133)")
+st.markdown("""#### Contributors:
+
+                * Yaroslav Kharkov (Univeristy of Maryland)
+                * Timothy Zolkin (Fermilab)
+                """)
