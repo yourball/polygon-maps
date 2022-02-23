@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-# import plotly.figure_factory as ff
-# import plotly.express as px
+import plotly.figure_factory as ff
+import plotly.express as px
 # import altair as alt
 import time
 import matplotlib.pyplot as plt
@@ -57,7 +57,6 @@ def plot_orbits(ax, k_list, xi_list, d, Tmax=1000):
     return ax
 
 st.markdown("""## Canonical form of symplectic maps""")
-
 st.write("""Arbitrary area-preserving (symplectic) mapping of the plane
 can be represented in the McMillan-Turaev canonical form:""")
 st.latex(r"""
@@ -86,7 +85,7 @@ num_pieces = st.sidebar.number_input('Number of piecewise regions for the force 
                              min_value=2, max_value=10, value=3, step=1)
 Tmax = st.sidebar.number_input("Number of map iterations", min_value=1, value=2000, step=1000)
 
-st.sidebar.write(r'Slopes of the piesewise function $k_i$:')
+st.sidebar.write(r'Specify slopes of the piesewise force function $k_i$:')
 
 k_init = (1 + np.arange(num_pieces)) % 2
 for p in range(int(num_pieces)):
@@ -106,19 +105,22 @@ ax_map.set_aspect('equal')
 st.pyplot(fig_map)
 
 st.sidebar.subheader('Force function')
-# plot force function
-fig_f, ax_f = plt.subplots()
 x = np.linspace(min(xi_list)-2, max(xi_list)+2, 1000)
-ax_f.set_xlabel(r'$q$')
-ax_f.set_ylabel(r'$f(q)$')
+
+# plot force function
+# fig_f, ax_f = plt.subplots()
+# ax_f.set_xlabel(r'$q$')
+# ax_f.set_ylabel(r'$f(q)$')
 f = []
 for xi in x:
     f.append(force(xi, k_list, xi_list, d))
 
-ax_f.plot(x, f, color='k')
+# ax_f.plot(x, f, color='k')
+df = pd.DataFrame({'q': x, 'f(q)': f})
+fig_f = px.line(df, x='q', y='f(q)', width=300, height=300)
+st.sidebar.plotly_chart(fig_f, use_container_width=True)
 
-st.sidebar.pyplot(fig_f)
-st.markdown("### Preprint: [arXiv: 2201.13133](https://arxiv.org/abs/2201.13133)")
+st.markdown("#### Preprint: [arXiv: 2201.13133](https://arxiv.org/abs/2201.13133)")
 st.markdown("""#### Contributors:
 
                 * Yaroslav Kharkov (Univeristy of Maryland)
